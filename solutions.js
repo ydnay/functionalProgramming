@@ -15,10 +15,20 @@ very little code. The first two exercises have been completed in advance, but pl
 // Exercise 1: Print all the names in an array
 
 const names = ["Ben", "Jafar", "Matt", "Priya", "Brian"];
+
 const traverseArr = function(arr) {
   for(let i = 0; i < arr.length; i++) {
     console.log(arr[i]);
   }
 }
 
-traverseArr(names);
+// traverseArr(names);
+
+// Exercise 2: Use forEach to print all the names in an array
+// Let's repeat the previous exercise using the forEach function.
+
+const traverseArr1 = function(arr) {
+  names.forEach(name => console.log(name));
+}
+
+traverseArr1(names);
