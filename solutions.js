@@ -142,5 +142,14 @@ Array.prototype.myFilter = function(predicateFunct) {
   return res;
 }
 
-console.log(JSON.stringify([1,2,3].filter(function(x) { return x > 2})) === "[3]");
-console.log(JSON.stringify([1,2,3].myFilter(function(x) { return x > 2})) === "[3]");
+// console.log(JSON.stringify([1,2,3].filter(function(x) { return x > 2})) === "[3]");
+// console.log(JSON.stringify([1,2,3].myFilter(function(x) { return x > 2})) === "[3]");
+
+// Query Data by Chaining Method Calls
+// Exercise 8: Chain filter and map to collect the ids of videos that have a rating of 5.0
+
+const collectElem1 = arr => arr.
+  filter(elem => elem.rating === 5).
+  map(elem => elem.id);
+
+console.log(collectElem1(newReleases));
