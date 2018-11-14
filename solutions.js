@@ -87,9 +87,9 @@ const projectArr = function(arr) {
 // To make projections easier, let's add a map() function to the Array type. Map accepts the projection function to be 
 // applied to each item in the source array, and returns the projected array.
 
-Array.prototype.myMap = function(f) {
+Array.prototype.myMap = function(projectionFunct) {
   const res = [];
-  this.forEach(elem => res.push(f(elem)));
+  this.forEach(elem => res.push(projectionFunct(elem)));
 
   return res;
 }
@@ -124,5 +124,23 @@ const collectElem = arr => {
   return res;
 }
 
-console.log(collectElem(newReleases));
+// console.log(collectElem(newReleases));
 
+// Exercise 7: Implement filter()
+// To make filtering easier, let's add a filter() function to the Array type. The filter() function accepts a 
+// predicate. A predicate is a function that accepts an item in the array, and returns a boolean indicating whether 
+// the item shoul be retained in the new array.
+
+Array.prototype.myFilter = function(predicateFunct) {
+  const res = [];
+  this.forEach(function(elem) {
+    if (predicateFunct(elem)) {
+      res.push(elem);
+    }
+  })
+
+  return res;
+}
+
+console.log(JSON.stringify([1,2,3].filter(function(x) { return x > 2})) === "[3]");
+console.log(JSON.stringify([1,2,3].myFilter(function(x) { return x > 2})) === "[3]");
