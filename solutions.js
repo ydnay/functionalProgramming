@@ -215,4 +215,26 @@ const flattenArr = arr => {
   return res;
 }
 
-console.log(flattenArr(movieLists));
+// console.log(flattenArr(movieLists));
+
+// Exercise 10: Implement concatAll()
+// Let's add a concatAll() function to the Array type. The concatAll() function iterates over each sub-array in the 
+// array and collects the results in a new, flat array. Notice that the concatAll() function expects each item in the
+// array to be another array.
+
+Array.prototype.myConcatAll = function(arr) {
+  const res = [];
+  this.forEach(nestedArr => nestedArr.forEach(elem => res.push(elem)));
+
+  return res;
+}
+
+// console.log(JSON.stringify([ [1,2,3], [4,5,6], [7,8,9] ].myConcatAll()) === "[1,2,3,4,5,6,7,8,9]");
+// console.log([1,2,3].myConcatAll()); // throws an error because this is a one-dimensional array
+
+// Exercise 11: Use map() and concatAll() to project and flatten the movieLists into an array of video ids
+// Hint: use two nested calls to map() and one call to concatAll().
+
+const projectAndFlatten = arr => arr.map(genre => genre.videos.map(movie => movie.id)).myConcatAll()
+
+console.log(projectAndFlatten(movieLists));
