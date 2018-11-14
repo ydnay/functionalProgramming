@@ -94,5 +94,13 @@ Array.prototype.myMap = function(f) {
   return res;
 }
 
-console.log(JSON.stringify([1,2,3].map(function(x) { return x + 1; })) === '[2,3,4]');
-console.log(JSON.stringify([1,2,3].myMap(function(x) { return x + 1; })) === '[2,3,4]');
+// console.log(JSON.stringify([1,2,3].map(function(x) { return x + 1; })) === '[2,3,4]');
+// console.log(JSON.stringify([1,2,3].myMap(function(x) { return x + 1; })) === '[2,3,4]');
+
+// Exercise 5: Use map() to project an array of videos into an array of {id,title} pairs
+// Let's repeat the exercise of collecting {id, title} pairs for each video in the newReleases array, but this time 
+// we'll use our map function.
+
+const projectArr1 = arr => arr.map(elem => ({id: elem.id, title: elem.title}));
+
+console.log(projectArr1(newReleases));
