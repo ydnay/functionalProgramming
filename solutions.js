@@ -81,4 +81,18 @@ const projectArr = function(arr) {
   return res;
 }
 
-console.log(projectArr(newReleases));
+// console.log(projectArr(newReleases));
+
+// Exercise 4: Implement map()
+// To make projections easier, let's add a map() function to the Array type. Map accepts the projection function to be 
+// applied to each item in the source array, and returns the projected array.
+
+Array.prototype.myMap = function(f) {
+  const res = [];
+  this.forEach(elem => res.push(f(elem)));
+
+  return res;
+}
+
+console.log(JSON.stringify([1,2,3].map(function(x) { return x + 1; })) === '[2,3,4]');
+console.log(JSON.stringify([1,2,3].myMap(function(x) { return x + 1; })) === '[2,3,4]');
