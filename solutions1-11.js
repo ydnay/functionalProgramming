@@ -237,4 +237,4 @@ Array.prototype.myConcatAll = function(arr) {
 
 const projectAndFlatten = arr => arr.map(genre => genre.videos.map(movie => movie.id)).myConcatAll()
 
-console.log(projectAndFlatten(movieLists));
+// console.log(projectAndFlatten(movieLists));
