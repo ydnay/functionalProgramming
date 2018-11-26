@@ -235,6 +235,6 @@ Array.prototype.myConcatAll = function(arr) {
 // Exercise 11: Use map() and concatAll() to project and flatten the movieLists into an array of video ids
 // Hint: use two nested calls to map() and one call to concatAll().
 
-const projectAndFlatten = arr => arr.map(genre => genre.videos.map(movie => movie.id)).myConcatAll()
+const projectAndFlatten = arr => arr.map(genre => genre.videos.map(movie => movie.id)).myConcatAll();
 
-// console.log(projectAndFlatten(movieLists));
+console.log(projectAndFlatten(movieLists));
