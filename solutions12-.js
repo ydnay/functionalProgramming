@@ -65,6 +65,7 @@ Array.prototype.myConcatAll = function(arr) {
 }
 
 // Exercise 12: Retrieve id, title, and a 150x200 box art url for every video
+
 // You've managed to flatten a tree that's two levels deep, let's try for three! Let's say that instead of a single 
 // boxart url on each video, we had a collection of boxart objects, each with a different size and url. Create a query 
 // that selects {id, title, boxart} for every video in the movieLists. This time though, the boxart property in the 
@@ -94,4 +95,28 @@ const retrieveIdTitlePlus = arr => arr.
 //   return res;
 // }
 
-console.log(retrieveIdTitlePlus(movieLists)); 
+// console.log(retrieveIdTitlePlus(movieLists)); 
+
+// Exercise 13: Implement concatMap()
+
+// Nearly every time we flatten a tree we chain map() and concatAll(). Sometimes, if we're dealing with a tree several 
+// levels deep, we'll repeat this combination many times in our code. To save on typing, let's create a concatMap 
+// function that's just a map operation, followed by a concatAll.
+
+Array.prototype.concatMap = function(projectionFunctionThatReturnsArray) {
+  return this.
+    map(function(item) {
+      return projectionFunctionThatReturnsArray(item);
+    }).
+    myConcatAll();
+};
+
+
+var spanishFrenchEnglishWords = [ ["cero","rien","zero"], ["uno","un","one"], ["dos","deux","two"] ];
+// collect all the words for each number, in every language, in a single, flat list
+var allWords = [0,1,2].
+  concatMap(function(index) {
+    return spanishFrenchEnglishWords[index];
+  });
+
+console.log(JSON.stringify(allWords) === '["cero","rien","zero","uno","un","one","dos","deux","two"]');
