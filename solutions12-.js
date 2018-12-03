@@ -82,9 +82,9 @@ const retrieveIdTitlePlus = arr => arr.
             id: video.id,
             title: video.title,
             boxart: boxart.url
-          }))
-      )).myConcatAll().
-    myConcatAll();
+          })))).
+      myConcatAll().
+  myConcatAll();
 
 // const retrieveIdTitlePlus = function(arr) {
 //   const res = [];
@@ -119,4 +119,23 @@ var allWords = [0,1,2].
     return spanishFrenchEnglishWords[index];
   });
 
-console.log(JSON.stringify(allWords) === '["cero","rien","zero","uno","un","one","dos","deux","two"]');
+// console.log(JSON.stringify(allWords) === '["cero","rien","zero","uno","un","one","dos","deux","two"]');
+
+// Exercise 14: Use concatMap() to retrieve id, title, and 150x200 box art url for every video
+
+// Let's repeat the exercise we just performed. However this time we'll simplify the code by replacing the 
+// map().concatAll() calls with concatMap().
+
+const retrieveIdTitlePlus2 = arr => arr.
+  concatMap(movieList =>
+    movieList.videos.
+      concatMap(video =>
+        video.boxarts.
+        filter(boxart => boxart.width === 150 && boxart.height === 200).
+        map(boxart => ({
+          id: video.id,
+          title: video. title,
+          boxart: boxart.url
+        }))));
+
+console.log(retrieveIdTitlePlus2(movieLists));
