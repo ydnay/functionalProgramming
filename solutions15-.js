@@ -1,4 +1,4 @@
-// Reducing Arrays
+ // Reducing Arrays
 // Sometimes we need to perform an operation on more than one item in the array at the same time. For example, let's
 // say we need to find the largest integer in an array. We can't use a filter() operation, because it only examines 
 // one item at a time. To find the largest integer we need to compare items in the array to each other.
@@ -48,7 +48,7 @@ const getLargestBoxart = function(arr) {
 // Let's add a reduce() function to the Array type. Like map. Take note this is different from the reduce in ES5,
 // which returns a value instead of an Array!
 
-Array.prototype.reduce = function(combiner, initialValue) {
+Array.prototype.myReduce = function(combiner, initialValue) {
   var counter,
       accumulatedValue; 
 
@@ -82,6 +82,18 @@ Array.prototype.reduce = function(combiner, initialValue) {
   }
 };
 
-console.log([1,2,3].reduce(function(accumulatedValue, currentValue) { return accumulatedValue + currentValue; })); //=== [6];
-console.log([1,2,3].reduce(function(accumulatedValue, currentValue) { return accumulatedValue + currentValue; }, 10)); //=== [16];
-console.log([].reduce(function(accumulatedValue, currentValue) { return accumulatedValue + currentValue; })); // === []
+// console.log([1,2,3].reduce(function(accumulatedValue, currentValue) { return accumulatedValue + currentValue; })); //=== [6];
+// console.log([1,2,3].reduce(function(accumulatedValue, currentValue) { return accumulatedValue + currentValue; }, 10)); //=== [16];
+// console.log([].reduce(function(accumulatedValue, currentValue) { return accumulatedValue + currentValue; })); // === []
+
+// Exercise 17: Retrieve the largest rating.
+
+// Let's use our new reduce function to isolate the largest value in an array of ratings.
+
+const ratings = [2,3,1,4,5];
+
+const getRating = arr => arr.myReduce((acc, cur) => acc > cur ? acc : cur)
+const getRating2 = arr => arr.reduce((acc, cur) => acc > cur ? acc : cur)
+
+console.log(getRating(ratings));
+console.log(getRating2(ratings));
