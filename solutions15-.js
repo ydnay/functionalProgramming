@@ -95,5 +95,16 @@ const ratings = [2,3,1,4,5];
 const getRating = arr => arr.myReduce((acc, cur) => acc > cur ? acc : cur)
 const getRating2 = arr => arr.reduce((acc, cur) => acc > cur ? acc : cur)
 
-console.log(getRating(ratings));
-console.log(getRating2(ratings));
+// console.log(getRating(ratings));
+// console.log(getRating2(ratings));
+
+// Exercise 18: Retrieve url of the largest boxart
+
+// Let's try combining reduce() with map() to reduce multiple boxart objects to a single value: the url of the 
+// largest box art.
+
+const getLargestBoxart2 = arr => arr.
+  myReduce((acc, cur) => acc.width * acc.height > cur.width * cur.height ? acc : cur).
+  map(boxart => boxart.url)
+
+console.log(getLargestBoxart2(boxarts));
