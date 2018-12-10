@@ -135,7 +135,12 @@ const videos = [
 ];
 
 function reduceWithIniVal(arr) {
-  return arr.myReduce((acc, cur) => acc[cur.id] = acc[cur.title]);
+  return arr.myReduce(function(acc, cur) {
+    const clone = Object.create(acc);
+    clone[cur.id] = cur.title;
+
+    return Object.assign(acc, clone);
+  }, {});
 }
 
 console.log(reduceWithIniVal(videos));
