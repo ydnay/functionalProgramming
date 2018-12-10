@@ -107,4 +107,35 @@ const getLargestBoxart2 = arr => arr.
   myReduce((acc, cur) => acc.width * acc.height > cur.width * cur.height ? acc : cur).
   map(boxart => boxart.url)
 
-console.log(getLargestBoxart2(boxarts));
+// console.log(getLargestBoxart2(boxarts));
+
+// Exercise 19: Reducing with an initial value
+
+// Sometimes when we reduce an array, we want the reduced value to be a different type than the items stored in the 
+// array. Let's say we have an array of videos and we want to reduce them to a single map where the key is the video 
+// id and the value is the video's title.
+
+const videos = [
+  {
+    "id": 65432445,
+    "title": "The Chamber"
+  },
+  {
+    "id": 675465,
+    "title": "Fracture"
+  },
+  {
+    "id": 70111470,
+    "title": "Die Hard"
+  },
+  {
+    "id": 654356453,
+    "title": "Bad Boys"
+  }
+];
+
+function reduceWithIniVal(arr) {
+  return arr.myReduce((acc, cur) => acc[cur.id] = acc[cur.title]);
+}
+
+console.log(reduceWithIniVal(videos));
