@@ -142,4 +142,4 @@ const reduceWithIniVal = arr => arr.
     return Object.assign(acc, clone);
   }, {});
 
-console.log(reduceWithIniVal(videos));
+// console.log(reduceWithIniVal(videos));
