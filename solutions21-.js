@@ -78,4 +78,18 @@ Array.zip = function(left, right, combinerFunction) {
   return results;
 };
 
-console.log(JSON.stringify(Array.zip([1,2,3],[4,5,6], function(left, right) { return left + right })) === '[5,7,9]');
+// console.log(JSON.stringify(Array.zip([1,2,3],[4,5,6], function(left, right) { return left + right })) === '[5,7,9]');
+
+// Exercise 23: Combine videos and bookmarks by index
+// Let's repeat exercise 21, but this time lets use your new zip() function. For each video and 
+// bookmark pair, create a {videoId, bookmarkId} pair.
+
+const pairIds2 = () => {
+  return Array.
+    zip(
+      videos, 
+      bookmarks, 
+      (video, bookmark) => ({ videoId: video.id, bookmarkId: bookmark.id}));
+}
+
+console.log(pairIds2());
